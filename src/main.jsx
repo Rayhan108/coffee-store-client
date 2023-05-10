@@ -20,8 +20,9 @@ const router = createBrowserRouter([
  
   },
   {
-    path: "/update",
-    element: <UpdateCoffee></UpdateCoffee> ,
+    path: "/update/:id",
+    element: <UpdateCoffee></UpdateCoffee>,
+    loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
